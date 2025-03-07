@@ -1,0 +1,96 @@
+.slug {
+  background-color: #f4f0e8;
+  height: 100%;
+  color: gray;
+  font-weight: 100;
+}
+.header {
+  height: 350px;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+.imgContainer {
+  grid-area: 1 / 1 / -1 / -1;
+  height: 100%;
+  width: 100vw;
+  position: relative;
+  object-fit: cover;
+  display: block;
+}
+.imgContainer__img {
+  object-fit: cover;
+  width: 100vw;
+  height: auto;
+  max-height: 400px;
+  grid-area: 1 / 1 / -1 / -1;
+  overflow: hidden;
+  z-index: 0;
+  display: block;
+}
+.imgContainer__button {
+  grid-area: 1 / 1 / -1 / -1;
+  z-index: 500;
+  place-items: center;
+  height: 3rem;
+  width: 3rem;
+  margin: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.arrow {
+  font-size: 2rem;
+  color: yellow;
+}
+.artworkMainText {
+  padding: 0.6rem;
+}
+.artworkMainText__title {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 3rem 0 0;
+}
+.artworkSecondaryText {
+  padding: 0 0.6rem 0.6rem;
+}
+.artworkSecondaryText__style {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+.artworkSecondaryText__origin {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+.artworkSecondaryText__provenance {
+  font-size: 0.9rem;
+}
+.divider {
+  height: 10px;
+  display: block;
+  width: 30vw;
+  border-bottom: solid 1px gray;
+}
+.artwork__tag {
+  background-color: rgba(128, 128, 128, 0.05);
+  border: 1px solid gray;
+  color: gray;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+}
+.artwork__tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.6rem;
+  margin-bottom: 2rem;
+  line-height: normal;
+}
