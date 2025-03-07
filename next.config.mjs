@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  trailingSlash: true,
+  output: "standalone", // bulkier but supports dynamic routes & api
   images: {
     unoptimized: true,
     remotePatterns: [
