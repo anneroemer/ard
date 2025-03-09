@@ -41,7 +41,7 @@ const Artwork = () => {
   }, [id]);
 
   useEffect(() => {
-    if (slug) {
+    if (id) {
       axios(`https://api.artic.edu/api/v1/artworks/${id}`, {}).then((result) => {
         // console.log(result.data.data);
         setArtwork(result.data.data);
