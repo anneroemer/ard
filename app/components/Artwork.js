@@ -41,6 +41,7 @@ const Artwork = ({ params }) => {
         setScrAttr(`https://www.artic.edu/iiif/2/${artwork?.image_id}/full/843,/0/default.jpg`);
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
 
   return (
