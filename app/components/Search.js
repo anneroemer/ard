@@ -91,7 +91,7 @@ const Search = () => {
       <div className={styles.searchResult__container}>
         <ul className={styles.searchResults__list}>
           {results?.map((result, index) => (
-            <Link passHref={true} key={index} href={`/artwork/${result?.id}`} prefetch={true} scroll>
+            <Link passHref={true} key={index} href={`/artwork?id=${result?.id}`} prefetch={true} scroll>
               <li
                 // onClick={() => router.push(`/artwork/${result?.id}`)}
                 className={styles.searchResult__listItem}

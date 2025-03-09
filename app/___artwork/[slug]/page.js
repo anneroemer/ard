@@ -1,14 +1,14 @@
 import { Suspense } from "react";
 import Artwork from "../../components/Artwork";
 
-export const dynamicParams = true;
+// export const dynamicParams = true;
 // export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
   const artworks = await fetch("https://api.artic.edu/api/v1/artworks?limit=60").then((res) => res.json());
   console.log("Artworks:", artworks.data);
   if (!artworks.data || artworks.data.length === 0) {
-    return { slug: "not-found" };
+    return "not-found";
   }
   return artworks.data.map((artwork) => ({
     slug: `${artwork.id}`,

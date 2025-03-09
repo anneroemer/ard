@@ -1,22 +1,17 @@
 "use client";
-import { useState, useEffect, useContext } from "react";
-// import { ColorContext } from "../contexts/ColorContext";
+import { useState, useEffect, useContext, Suspense } from "react";
 import { IoArrowBackSharp } from "react-icons/io5";
-import styles from "./Artwork.module.scss";
+import styles from "../components/Artwork.module.scss";
 import axios from "axios";
 import Image from "next/image";
-import { use } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
-const Artwork = () => {
+export default function Page() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
 
-  // export default function UserDetail() {
-  //   return <div>test: {searchParams.get("userId")}</div>;
-  // }
+  console.log("ID", id);
   // const router = useRouter();
   // const { slug } = use(params);
   //   const { color } = useContext(ColorContext);
@@ -41,7 +36,7 @@ const Artwork = () => {
   }, [id]);
 
   useEffect(() => {
-    if (slug) {
+    if (id) {
       axios(`https://api.artic.edu/api/v1/artworks/${id}`, {}).then((result) => {
         // console.log(result.data.data);
         setArtwork(result.data.data);
@@ -52,7 +47,7 @@ const Artwork = () => {
   }, [id]);
 
   return (
-    <>
+    <Suspense>
       <div className={styles.slug}>
         <div className={styles.header}>
           <div className={styles.imgContainer__button} onClick={() => router.back()}>
@@ -103,8 +98,6 @@ const Artwork = () => {
           <div></div>
         )}
       </div>
-    </>
+    </Suspense>
   );
-};
-
-export default Artwork;
+}
