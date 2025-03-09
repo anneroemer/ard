@@ -31,7 +31,7 @@ const Navigation = () => {
       </motion.button>
       <nav className={styles.nav}>
         {isVisible ? (
-          <Link passHref={true} href="/" scroll>
+          <Link passHref={true} href="/" prefetch={true} scroll>
             <span className={[styles.nav__home]}>
               <p>home</p>
             </span>

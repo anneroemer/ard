@@ -23,7 +23,7 @@ const Artworks = () => {
     <ul className={styles.list}>
       {artworks?.map((artwork, index) => (
         <li key={index} className={styles.listItem}>
-          <Link passHref={true} href={`/artwork/${artwork.id}`} className={styles.listItem__link} scroll>
+          <Link passHref={true} href={`/artwork/${artwork.id}`} className={styles.listItem__link} prefetch={true} scroll>
             <span className={styles.listItem__linkAnchor}>
               <div className={styles.listItem__textBox}>
                 <h2 className={styles.listItem__title}>{artwork.title}</h2>

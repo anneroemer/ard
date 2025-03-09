@@ -85,7 +85,7 @@ const Artwork = ({ params }) => {
             </section>
             <section className={styles.artwork__tags}>
               {artwork?.term_titles?.map((tag, index) => (
-                <Link passHref href={`/search?q=${tag}`} key={index} className={styles.artwork__tag}>
+                <Link passHref href={`/search?q=${tag}`} key={index} className={styles.artwork__tag} prefetch={true}>
                   <span>{tag}</span>
                 </Link>
               ))}
