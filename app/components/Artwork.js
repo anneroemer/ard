@@ -36,7 +36,7 @@ const Artwork = ({ params }) => {
   useEffect(() => {
     if (slug) {
       axios(`https://api.artic.edu/api/v1/artworks/${slug}`, {}).then((result) => {
-        console.log(result.data.data);
+        // console.log(result.data.data);
         setArtwork(result.data.data);
         setScrAttr(`https://www.artic.edu/iiif/2/${artwork?.image_id}/full/843,/0/default.jpg`);
       });
