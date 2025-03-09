@@ -1,7 +1,5 @@
-import { IoArrowForwardSharp } from "react-icons/io5";
 import styles from "./components/Artworks.module.scss";
-import Art from "./components/Art";
-import Link from "next/link";
+import Card from "./components/Card";
 
 async function getArtworks() {
   const res = await fetch(`https://api.artic.edu/api/v1/artworks?limit=100`);
@@ -17,20 +15,7 @@ export default async function Index() {
     <ul className="list">
       {artworks.map((artwork, index) => (
         <li key={index} className={styles.listItem}>
-          <Link as={`/artwork?id=${artwork.id}`} rel="preload" passHref={true} href={`/artwork/${artwork.id}`} className={styles.listItem__link} prefetch={true} scroll>
-            <span className={styles.listItem__linkAnchor}>
-              <div className={styles.listItem__textBox}>
-                <h2 className={styles.listItem__title}>{artwork.title}</h2>
-                <p className={styles.listItem__artist}>{artwork.artist_title ? artwork.artist_title : "unknown"}</p>
-                <div className={styles.listItem__underline}></div>
-              </div>
-              <IoArrowForwardSharp className={styles.listItem__arrow} />
-              <div className={styles.listItem__imgContainer}>
-                <Art props={artwork} />
-              </div>
-              <div className={styles.overlay}></div>
-            </span>
-          </Link>
+          <Card artwork={artwork} />
         </li>
       ))}
     </ul>

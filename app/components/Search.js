@@ -5,6 +5,8 @@ import axios from "axios";
 import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { IoArrowForwardSharp } from "react-icons/io5";
+import Art from "./Art";
+import Card from "./Card";
 
 const Search = () => {
   const [query, setQuery] = useState("");
@@ -32,7 +34,7 @@ const Search = () => {
     setQuery(q);
     if (q.length) {
       createQueryString("q", q);
-      axios(`https://api.artic.edu/api/v1/artworks/search?q=${q}&size=20`, {}).then((result) => {
+      axios(`https://api.artic.edu/api/v1/artworks/search?q=${q}&size=20&fields=id,title,thumbnail,image_id,artist_title`, {}).then((result) => {
         console.log(result.data.data);
         setResults(result.data.data);
       });
@@ -91,24 +93,9 @@ const Search = () => {
       <div className={styles.searchResult__container}>
         <ul className={styles.searchResults__list}>
           {results?.map((result, index) => (
-            <Link passHref={true} key={index} href={`/artwork?id=${result?.id}`} prefetch={true} scroll>
-              <li
-                // onClick={() => router.push(`/artwork/${result?.id}`)}
-                className={styles.searchResult__listItem}
-                style={{
-                  width: "100%",
-                  height: "40dvh",
-                  backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${result?.thumbnail?.lqip})`,
-                  backgroundPosition: "left center",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "cover",
-                }}
-              >
-                <h3 className={styles.searchResult__title}>{result?.title}</h3>
-                <p className={styles.searchResult__altText}>{result?.thumbnail?.alt_text}</p>
-                <IoArrowForwardSharp className={styles.searchResult__arrow} />
-              </li>
-            </Link>
+            <li className={styles.searchResult__listItem} key={index}>
+              <Card artwork={result} />
+            </li>
           ))}
         </ul>
       </div>
