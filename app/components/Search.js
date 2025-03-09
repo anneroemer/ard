@@ -91,24 +91,24 @@ const Search = () => {
       <div className={styles.searchResult__container}>
         <ul className={styles.searchResults__list}>
           {results?.map((result, index) => (
-            // <Link passHref key={index} href={`/artwork/${result?.id}`} scroll>
-            <li
-              key={`res_${index}`}
-              onClick={() => router.push(`/artwork/${result?.id}`)}
-              className={styles.searchResult__listItem}
-              style={{
-                width: "100%",
-                height: "40dvh",
-                backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${result?.thumbnail?.lqip})`,
-                backgroundPosition: "left center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-              }}
-            >
-              <h3 className={styles.searchResult__title}>{result?.title}</h3>
-              <p className={styles.searchResult__altText}>{result?.thumbnail?.alt_text}</p>
-              <IoArrowForwardSharp className={styles.searchResult__arrow} />
-            </li>
+            <Link passHref key={index} href={`/artwork/${result?.id}`} replace scroll>
+              <li
+                // onClick={() => router.push(`/artwork/${result?.id}`)}
+                className={styles.searchResult__listItem}
+                style={{
+                  width: "100%",
+                  height: "40dvh",
+                  backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${result?.thumbnail?.lqip})`,
+                  backgroundPosition: "left center",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
+                }}
+              >
+                <h3 className={styles.searchResult__title}>{result?.title}</h3>
+                <p className={styles.searchResult__altText}>{result?.thumbnail?.alt_text}</p>
+                <IoArrowForwardSharp className={styles.searchResult__arrow} />
+              </li>
+            </Link>
           ))}
         </ul>
       </div>

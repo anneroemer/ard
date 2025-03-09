@@ -6,7 +6,7 @@ import Link from "next/link";
 async function getArtworks() {
   const res = await fetch(`https://api.artic.edu/api/v1/artworks?limit=60`);
   const artworks = await res.json();
-  console.log("art", artworks);
+  // console.log("art", artworks);
   return artworks.data;
 }
 
@@ -17,7 +17,7 @@ export default async function Index() {
     <ul className="list">
       {artworks.map((artwork, index) => (
         <li key={index} className={styles.listItem}>
-          <Link passHref={true} href={`/artwork/${artwork.id}`} className={styles.listItem__link} scroll>
+          <Link as={`/artwork/${artwork.id}`} rel="preload" passHref={true} href={`/artwork/${artwork.id}`} className={styles.listItem__link} scroll>
             <span className={styles.listItem__linkAnchor}>
               <div className={styles.listItem__textBox}>
                 <h2 className={styles.listItem__title}>{artwork.title}</h2>
@@ -26,7 +26,7 @@ export default async function Index() {
               </div>
               <IoArrowForwardSharp className={styles.listItem__arrow} />
               <div className={styles.listItem__imgContainer}>
-                <Art props={{ title: artwork.artist_title, id: artwork?.image_id }} />
+                <Art props={artwork} />
               </div>
               <div className={styles.overlay}></div>
             </span>

@@ -10,9 +10,12 @@ const Artworks = () => {
   const [artworks, setArtworks] = useState();
 
   useEffect(() => {
-    axios(`https://api.artic.edu/api/v1/artworks?limit=40`, {}).then((result) => {
+    axios(`https://api.artic.edu/api/v1/artworks?limit=60`, {}).then((result) => {
       setArtworks(result.data.data);
-      console.log(result.data.data);
+      // console.log(result.data.data);
+    });
+    artworks?.forEach((a) => {
+      console.log("A", a);
     });
   }, []);
 
@@ -29,7 +32,7 @@ const Artworks = () => {
               </div>
               <IoArrowForwardSharp className={styles.listItem__arrow} />
               <div className={styles.listItem__imgContainer}>
-                <Art props={{ title: artwork.artist_title, id: artwork?.image_id }} />
+                <Art props={artwork} />
               </div>
               <div className={styles.overlay}></div>
             </span>

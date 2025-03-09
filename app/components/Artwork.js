@@ -14,6 +14,7 @@ const Artwork = ({ params }) => {
   const { slug } = use(params);
   //   const { color } = useContext(ColorContext);
   const [artwork, setArtwork] = useState();
+  const [srcAttr, setScrAttr] = useState();
   //   console.log("Color:", color);
   //   console.log("Param:", slug);
 
@@ -37,6 +38,7 @@ const Artwork = ({ params }) => {
       axios(`https://api.artic.edu/api/v1/artworks/${slug}`, {}).then((result) => {
         console.log(result.data.data);
         setArtwork(result.data.data);
+        setScrAttr(`https://www.artic.edu/iiif/2/${artwork?.image_id}/full/843,/0/default.jpg`);
       });
     }
   }, [slug]);
@@ -51,12 +53,14 @@ const Artwork = ({ params }) => {
           <div className={styles.imgContainer}>
             {artwork ? (
               <Image
-                src={`https://www.artic.edu/iiif/2/${artwork?.image_id}/full/843,/0/default.jpg`}
+                src={srcAttr}
                 alt={artwork?.artist_title ? artwork?.artist_title : "title"}
                 width={400}
                 height={400}
                 className={styles.imgContainer__img}
                 priority={true}
+                placeholder={artwork.thumbnail.lqip} // 'blur'
+                onError={(e) => setScrAttr(`https://www.artic.edu/iiif/2/${artwork?.image_id}/full/400,/0/default.jpg`)}
               />
             ) : (
               <div></div>

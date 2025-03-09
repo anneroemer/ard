@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import Artwork from "../../components/Artwork";
-import path from "path";
 
 export async function generateStaticParams() {
   const artworks = await fetch("https://api.artic.edu/api/v1/artworks").then((res) => res.json());
