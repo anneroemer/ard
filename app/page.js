@@ -4,7 +4,7 @@ import Art from "./components/Art";
 import Link from "next/link";
 
 async function getArtworks() {
-  const res = await fetch(`https://api.artic.edu/api/v1/artworks?limit=60`);
+  const res = await fetch(`https://api.artic.edu/api/v1/artworks?limit=100`);
   const artworks = await res.json();
   // console.log("art", artworks);
   return artworks.data;

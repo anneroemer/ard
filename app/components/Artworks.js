@@ -10,12 +10,9 @@ const Artworks = () => {
   const [artworks, setArtworks] = useState();
 
   useEffect(() => {
-    axios(`https://api.artic.edu/api/v1/artworks?limit=60`, {}).then((result) => {
+    axios(`https://api.artic.edu/api/v1/artworks`, {}).then((result) => {
       setArtworks(result.data.data);
       // console.log(result.data.data);
-    });
-    artworks?.forEach((a) => {
-      console.log("A", a);
     });
   }, []);
 

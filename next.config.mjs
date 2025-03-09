@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export", //standalone- bulkier but supports dynamic routes & api
+  //   output: "export",
+  experimental: {
+    appDir: true,
+  },
   images: {
     unoptimized: true,
     remotePatterns: [
