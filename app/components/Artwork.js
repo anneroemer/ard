@@ -17,7 +17,7 @@ const Artwork = () => {
   // export default function UserDetail() {
   //   return <div>test: {searchParams.get("userId")}</div>;
   // }
-  // const router = useRouter();
+  const router = useRouter();
   // const { slug } = use(params);
   //   const { color } = useContext(ColorContext);
   const [artwork, setArtwork] = useState();
