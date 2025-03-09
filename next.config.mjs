@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone", // bulkier but supports dynamic routes & api
+  output: "export", //standalone- bulkier but supports dynamic routes & api
   images: {
     unoptimized: true,
     remotePatterns: [
