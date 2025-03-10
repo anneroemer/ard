@@ -30,7 +30,7 @@ const Artwork = () => {
       if (id) {
         const res = await fetch(`https://api.artic.edu/api/v1/artworks/${id}`);
         const artwork = await res.json();
-        console.log("Post:", artwork);
+        // console.log("Post:", artwork);
         return {
           title: `${artwork.data.department_title} - My Blog`,
           description: artwork.data.department_title,

@@ -8,6 +8,10 @@ async function getArtworks() {
   return artworks.data;
 }
 
+export const viewport = {
+  themeColor: "#938d85",
+};
+
 export default async function Index() {
   const artworks = await getArtworks();
 

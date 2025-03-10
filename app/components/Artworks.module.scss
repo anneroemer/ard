@@ -1,23 +1,19 @@
-.list {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
 .listItem {
   height: fit-content;
+  width: 100%;
 }
 
 .listItem__linkAnchor {
   height: 350px;
-  width: 100vw;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
 }
 .overlay {
   height: 350px;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   object-fit: cover;
   grid-area: 1 / 1 / -1 / -1;
   background-color: rgba(0, 0, 0, 0.38);
@@ -26,7 +22,7 @@
 .listItem__imgContainer {
   /* //display: block; */
   height: 350px;
-  width: 100vw;
+  width: 100%;
   grid-area: 1 / 1 / -1 / -1;
   overflow: hidden;
   position: relative;
@@ -34,7 +30,8 @@
 }
 .listItem__img {
   height: 350px;
-  width: 100vw;
+  width: 100%;
+  // max-width: 100%;
   object-fit: cover;
   grid-area: 1 / 1 / -1 / -1;
   overflow: hidden;
@@ -42,7 +39,7 @@
 }
 .listItem__textBox {
   height: 100%;
-  width: 100vw;
+  width: 100%;
   object-fit: cover;
   grid-area: 1 / 1 / -1 / -1;
   z-index: 300;

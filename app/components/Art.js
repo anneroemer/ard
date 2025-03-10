@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const Art = ({ props }) => {
   const { id, title, thumbnail, image_id } = props;
-  console.log("Art", props);
+  // console.log("Art", props);
   const [srcAttr, setSrcAttr] = useState(`https://www.artic.edu/iiif/2/${image_id}/full/200,/0/default.jpg`);
   useEffect(() => {
     if (image_id) {

@@ -22,7 +22,7 @@ const Search = () => {
   // searchParams with a provided key/value pair
   const createQueryString = useCallback(
     (name, value) => {
-      console.log("Query", name, value);
+      // console.log("Query", name, value);
       const params = new URLSearchParams(searchParams.toString());
       params.set(name, value);
       router.push(pathname + "?" + params);
@@ -35,7 +35,7 @@ const Search = () => {
     if (q.length) {
       createQueryString("q", q);
       axios(`https://api.artic.edu/api/v1/artworks/search?q=${q}&size=20&fields=id,title,thumbnail,image_id,artist_title`, {}).then((result) => {
-        console.log(result.data.data);
+        // console.log(result.data.data);
         setResults(result.data.data);
       });
     } else {
@@ -57,7 +57,7 @@ const Search = () => {
   useEffect(() => {
     axios(`https://api.artic.edu/api/v1/artworks?limit=1`, {}).then((result) => {
       setImage(result.data.data);
-      console.log(result.data.data);
+      // console.log(result.data.data);
     });
   }, []);
 
@@ -66,7 +66,7 @@ const Search = () => {
     if (hasQuery) {
       fetchQueryResults(hasQuery);
     }
-    console.log("search", searchParams.get("q"));
+    // console.log("search", searchParams.get("q"));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
