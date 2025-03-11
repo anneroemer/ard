@@ -18,7 +18,7 @@ const Navigation = () => {
   };
 
   return (
-    <motion.div>
+    <motion.div className={styles.nav__wrapper}>
       <motion.button
         className={styles.nav__btn}
         onClick={() => {

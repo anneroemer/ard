@@ -4,14 +4,14 @@
 
 .listItem__linkAnchor {
   height: 350px;
-  width: 100vw;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
 }
 .overlay {
   height: 350px;
-  width: 100vw;
+  width: 100%;
   object-fit: cover;
   grid-area: 1 / 1 / -1 / -1;
   background-color: rgba(0, 0, 0, 0.38);
@@ -20,15 +20,18 @@
 .listItem__imgContainer {
   /* //display: block; */
   height: 350px;
-  width: 100vw;
+  width: 100%;
   grid-area: 1 / 1 / -1 / -1;
   overflow: hidden;
   position: relative;
   object-fit: contain;
 }
 .listItem__img {
-  height: 350px;
-  width: 100vw;
+  //   height: 350px;
+  //   width: 100vw;
+  min-height: 100%;
+  max-height: 350px;
+  width: auto;
   object-fit: cover;
   grid-area: 1 / 1 / -1 / -1;
   overflow: hidden;
@@ -36,14 +39,22 @@
 }
 .listItem__textBox {
   height: 100%;
-  width: 100vw;
+  width: 100%;
   object-fit: cover;
   grid-area: 1 / 1 / -1 / -1;
   z-index: 300;
   padding: 1rem;
 }
 .listItem__title {
-  text-transform: uppercase;
+  //   font-family: "Spinnaker", sans-serif;
+  //   font-weight: 600;
+  //   font-style: normal;
+  font-family: "futura-pt", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: lowercase;
+  letter-spacing: 0.1rem;
+  //   text-transform: uppercase;
   font-size: 2.2rem;
   color: yellow;
   font-weight: 200;
@@ -58,7 +69,7 @@
 }
 .listItem__artist {
   text-transform: uppercase;
-  font-size: 0.6rem;
+  font-size: 0.9rem;
   color: yellow;
   font-weight: 200;
 }

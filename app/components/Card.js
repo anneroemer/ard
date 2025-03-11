@@ -1,6 +1,6 @@
 "use client";
 import { IoArrowForwardSharp } from "react-icons/io5";
-import styles from "./Artworks.module.scss";
+import styles from "./Card.module.scss";
 import Link from "next/link";
 import Art from "./Art";
 

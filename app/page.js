@@ -4,12 +4,15 @@ import Card from "./components/Card";
 async function getArtworks() {
   const res = await fetch(`https://api.artic.edu/api/v1/artworks?limit=100`);
   const artworks = await res.json();
-  // console.log("art", artworks);
+  console.log("art", artworks);
   return artworks.data;
 }
 
+// <link rel="stylesheet" href="https://use.typekit.net/vjp3tgn.css">
+
 export const viewport = {
   themeColor: "#938d85",
+  styles: "https://use.typekit.net/vjp3tgn.css",
 };
 
 export default async function Index() {
@@ -18,9 +21,13 @@ export default async function Index() {
   return (
     <ul className="list">
       {artworks.map((artwork, index) => (
-        <li key={index} className={styles.listItem}>
-          <Card artwork={artwork} />
-        </li>
+        <>
+          {artwork?.image_id ? (
+            <li key={index} className={styles.listItem}>
+              <Card artwork={artwork} />
+            </li>
+          ) : null}
+        </>
       ))}
     </ul>
   );
