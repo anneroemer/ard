@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import styles from "./components/Artworks.module.scss";
 import Card from "./components/Card";
 
@@ -21,13 +22,13 @@ export default async function Index() {
   return (
     <ul className="list">
       {artworks.map((artwork, index) => (
-        <>
+        <Fragment key={index}>
           {artwork?.image_id ? (
-            <li key={index} className={styles.listItem}>
+            <li className={styles.listItem}>
               <Card artwork={artwork} />
             </li>
           ) : null}
-        </>
+        </Fragment>
       ))}
     </ul>
   );

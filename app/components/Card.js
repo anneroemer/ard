@@ -5,8 +5,7 @@ import Link from "next/link";
 import Art from "./Art";
 
 const Card = ({ artwork }) => {
-  //   const { artwork } = props;
-  console.log("Artwork", artwork);
+  //   console.log("Artwork", artwork);
   return (
     <Link as={`/artwork?id=${artwork.id}`} rel="preload" passHref={true} href={`/artwork/${artwork.id}`} className={styles.listItem__link} prefetch={true} scroll>
       <span className={styles.listItem__linkAnchor}>

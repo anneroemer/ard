@@ -55,9 +55,9 @@ const Search = () => {
   };
 
   useEffect(() => {
-    axios(`https://api.artic.edu/api/v1/artworks?limit=1`, {}).then((result) => {
+    axios(`https://api.artic.edu/api/v1/artworks?limit=3`, {}).then((result) => {
       setImage(result.data.data);
-      // console.log(result.data.data);
+      console.log("Art:", result.data.data);
     });
   }, []);
 
@@ -76,14 +76,15 @@ const Search = () => {
       style={{
         width: "100%",
         height: "100dvh",
-        backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${image[0]?.thumbnail?.lqip})`,
-        backgroundPosition: "left center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
+        background: `hsl(${image[2].color.h} ${image[2].color.s} ${image[2].color.l} )`,
+        // backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${image[0]?.thumbnail?.lqip})`,
+        // backgroundPosition: "left center",
+        // backgroundRepeat: "no-repeat",
+        // backgroundSize: "cover",
       }}
     >
+      <h1 className={styles.searchTitle}>more art</h1>
       <div className={styles.search__header}>
-        <h1 className={styles.searchTitle}>more art</h1>
         <div className={styles.searchInputField__container}>
           <Suspense>
             <input type="search" name="search" id="search" placeholder="search here..." className={styles.searchInputField} onChange={onChange} value={query} />
